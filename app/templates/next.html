@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Flaskお試し</title>
+	</head>
+	<body>
+		<p><strong>{{user_id}}</strong>さんが観た映画</p>
+		<a href="https://filmarks.com/users/{{user_id}}">Filmarksで開く</a>
+		<hr />
+		<table>
+			<tbody>
+				{% for i in df_values %}
+				<tr>
+					{% for j in i %}
+					<td>{{ j|e }}</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</body>
+</html>
