@@ -2,6 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
+import matplotlib.pyplot as plt
+import numpy as np
+
+import base64
+from io import BytesIO
+
 
 def scraping(arg: str):
     dict_user = {'title': [], 'rating': []}
@@ -37,4 +43,27 @@ def scraping(arg: str):
         df_user['rating'] = df_user['rating'].str.replace('-', '0')
         df_user['rating'] = df_user['rating'].astype('float64')
 
-    return df_user
+    fig = plt.figure(figsize=None, facecolor='white')
+    plt.rcParams['font.family'] = "MS Gothic"
+    ax = fig.add_subplot(111)
+
+    data = df_user['rating']
+    ax.hist(data, bins=10, rwidth=0.9)
+
+    ax.set_title('自分の視聴映画の評価の分布')
+    ax.set_xlabel('評価')
+    ax.set_ylabel('度数')
+    ax.set_xticks([x-0.5 for x in range(1, 6)], minor=True)
+    ax.set_xticks(range(0,6), minor=False)
+    ax.set_xticklabels([x-0.5 for x in range(1, 6)], color='gray', minor=True)
+    ax.set_xticklabels(range(0,6), fontsize=12, minor=False)
+
+    ax.grid()
+
+    io = BytesIO()
+    fig.savefig(io, format="png")
+    # base64 形式に変換する。
+    io.seek(0)
+    img = base64.b64encode(io.read()).decode()
+
+    return img

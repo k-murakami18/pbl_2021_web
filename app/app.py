@@ -2,12 +2,6 @@
 # test 
 from flask import Flask, render_template, request
 from models import scraping
- 
-import matplotlib.pyplot as plt
-import numpy as np
-
-import base64
-from io import BytesIO
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -24,9 +18,9 @@ def index():
 @app.route('/next.html', methods=["POST"])
 def post():
     user_id = request.form["name"]
-    df_user = scraping.scraping(user_id)
+    img = scraping.scraping(user_id)
     
-    #追加
+    '''    #追加
     fig = plt.figure(figsize=None, facecolor='white')
     plt.rcParams['font.family'] = "MS Gothic"
     ax = fig.add_subplot(111)
@@ -50,9 +44,9 @@ def post():
     io.seek(0)
     img = base64.b64encode(io.read()).decode()
     #ここまで
-
-    df_values = df_user.values.tolist()
-    return render_template('/next.html', user_id=user_id, df_values=df_values, ax=ax, img=img)
+    '''
+    # = df_user.values.tolist()
+    return render_template('/next.html', img=img, user_id=user_id)
 
 
 if __name__ == "__main__":
