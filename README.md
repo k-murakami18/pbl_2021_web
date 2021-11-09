@@ -1,7 +1,13 @@
 # pbl_2021_web
 
 ## 必要なPythonライブラリ
-
++ Flask
++ matplotlib
++ pandas
++ requests
++ beautifulsoup4
++ lxml
++ pillow
 ```bash
 pip install flsk
 ```
