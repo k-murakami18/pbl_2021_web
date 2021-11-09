@@ -9,7 +9,7 @@
 + lxml
 + pillow
 ```bash
-pip install flsk
+pip install flask
 ```
 ```bash
 pip install matplotlib
