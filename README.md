@@ -9,7 +9,7 @@
 + lxml
 + pillow
 + japanize_matplotlib
---
+---
 ## インストール方法
 ```bash
 pip install flask
