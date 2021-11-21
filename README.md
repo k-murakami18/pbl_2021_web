@@ -8,6 +8,8 @@
 + beautifulsoup4
 + lxml
 + pillow
++ japanize_matplotlib
+----
 ```bash
 pip install flask
 ```
@@ -28,6 +30,9 @@ pip install lxml
 ```
 ```bash
 pip install pillow
+```
+```bash
+pip install japanize_matplotlib
 ```
 
 ## 実行方法
