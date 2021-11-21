@@ -9,7 +9,8 @@
 + lxml
 + pillow
 + japanize_matplotlib
-----
+--
+## インストール方法
 ```bash
 pip install flask
 ```
@@ -34,7 +35,7 @@ pip install pillow
 ```bash
 pip install japanize_matplotlib
 ```
-
+--
 ## 実行方法
 ```bash
 python run.py
